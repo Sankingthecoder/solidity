@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.0 <0.9.0;
+
+contract StorageDemo{
+    uint id;
+    struct Student{
+        uint roll_no;
+        string name;
+        uint marks;
+    }
+   Student[] public tycs;
+   mapping(string=>uint) public findMarks;
+    function addStudent(uint r,string memory nm, uint m) public{
+        tycs.push(Student(r,nm,m));
+        findMarks[nm]=m;
+    }
+
+    function store(uint i) public{
+        id=i;
+    } 
+
+    function retrieve() public view  returns (uint){
+        return id; 
+    }
+}
